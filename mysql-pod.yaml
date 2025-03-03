@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    app: mysql
+  name: mysql-pod
+  namespace: database
+spec:
+  imagePullSecrets:
+  - name: ecr-secret
+  containers:
+  - image: ECRURI/clo835-assignment2-my-mysql-repo:v1.0
+    name: mysql-pod
+    env:
+      - name: MYSQL_ROOT_PASSWORD
+        value: "pw"
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}
